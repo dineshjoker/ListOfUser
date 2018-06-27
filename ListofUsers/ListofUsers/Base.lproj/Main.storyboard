@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,20 +79,13 @@
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jdl-JW-ceT" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yZ-FN-CQH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-jp-uol">
-                                <rect key="frame" x="112" y="102" width="151" height="156"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="MCT-Pa-UKr"/>
-                                    <constraint firstAttribute="height" constant="156" id="yAg-U6-JHC"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-up-ctn">
-                                <rect key="frame" x="0.0" y="266" width="375" height="219"/>
+                                <rect key="frame" x="0.0" y="234" width="375" height="219"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="219" id="6Oj-yS-8Pd"/>
+                                    <constraint firstAttribute="height" constant="219" id="sHc-54-HV5"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="y3S-CZ-GTN">
@@ -108,15 +102,22 @@
                                     <outlet property="delegate" destination="Jdl-JW-ceT" id="7H2-r0-5gL"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-jp-uol">
+                                <rect key="frame" x="112" y="64" width="151" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="BaR-jx-7Ex"/>
+                                    <constraint firstAttribute="width" constant="151" id="Etf-aR-X66"/>
+                                    <constraint firstAttribute="width" secondItem="rbs-jp-uol" secondAttribute="height" multiplier="151:156" id="kUo-Ld-gM9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rbs-jp-uol" firstAttribute="centerX" secondItem="IJ8-up-ctn" secondAttribute="centerX" id="0jO-kv-9nJ"/>
-                            <constraint firstItem="rbs-jp-uol" firstAttribute="top" secondItem="2kh-HO-mDK" secondAttribute="top" constant="38" id="GFy-qb-1HR"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" id="JZW-hn-aaZ"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="top" secondItem="rbs-jp-uol" secondAttribute="bottom" constant="8" id="Oof-oD-1DO"/>
-                            <constraint firstItem="rbs-jp-uol" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" constant="112" id="eur-5A-a6L"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="trailing" secondItem="2kh-HO-mDK" secondAttribute="trailing" id="fiV-Cg-eaR"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="trailing" secondItem="2kh-HO-mDK" secondAttribute="trailing" id="55K-ui-CUy"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="top" secondItem="rbs-jp-uol" secondAttribute="bottom" constant="14" id="GiB-YR-ikq"/>
+                            <constraint firstItem="rbs-jp-uol" firstAttribute="top" secondItem="2kh-HO-mDK" secondAttribute="top" id="UaL-XM-16F"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" id="env-HJ-1kJ"/>
+                            <constraint firstItem="rbs-jp-uol" firstAttribute="centerX" secondItem="IJ8-up-ctn" secondAttribute="centerX" id="oip-sV-LGQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2kh-HO-mDK"/>
                     </view>

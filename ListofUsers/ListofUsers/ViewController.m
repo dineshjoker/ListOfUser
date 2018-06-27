@@ -21,6 +21,8 @@
     AppDelegate *app;
     
     UIImage *img;
+    
+    BOOL isDataAvailable;
 }
 
 @end
@@ -31,6 +33,8 @@
     [super viewDidLoad];
 
     dataArr = [[NSMutableArray alloc]init];
+    
+    isDataAvailable = NO;
     
     app = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
@@ -50,7 +54,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [dataArr count];
+   
+    if ([dataArr count] == 0 ) {
+        
+        return 0;
+   
+    }else{
+        
+        return [dataArr count];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,18 +72,44 @@
     
     if (dataArr.count) {
         
-        NSMutableDictionary *Userdic = [dataArr objectAtIndex:indexPath.row];
+        if(indexPath.row <[dataArr count]){
+            
+            NSMutableDictionary *Userdic = [dataArr objectAtIndex:indexPath.row];
+            
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[Userdic valueForKey:@"firstName"],[Userdic valueForKey:@"lastName"]];
+            
+            UIImage *Image = [UIImage imageWithData:[Userdic valueForKey:@"profileImage"]];
+            
+            cell.imageView.image = Image;
+            
+        }
         
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[Userdic valueForKey:@"firstName"],[Userdic valueForKey:@"lastName"]];
-        
-        UIImage *Image = [UIImage imageWithData:[Userdic valueForKey:@"profileImage"]];
-        
-        cell.imageView.image = Image;
     }
     
-    
-    
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return self.view.frame.size.height/3;
+    
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    float endScrolling = scrollView.contentOffset.y + scrollView.frame.size.height;
+    
+    if (endScrolling >= scrollView.contentSize.height)
+    {
+        if ([dic valueForKey:@"page"] <= [dic valueForKey:@"total_pages"]) {
+            
+                        NSNumber *page = [dic valueForKey:@"page"];
+            
+                        int pageint = [page intValue];
+            
+                        [self JsonRequestandResponce:[NSURL URLWithString:[NSString stringWithFormat:@"https://reqres.in/api/users?page=%d",pageint + 1]]];
+                }
+        }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,9 +142,8 @@
             
             for (NSDictionary *dicValue in [dic valueForKey:@"data"]) {
                 
-                [self loadbyPaging:dicValue];
+               [self savemethod:dicValue];
             }
-            
             
             NSError *error;
             
@@ -116,34 +154,10 @@
             
             [self gettingSavedValues];
             
-            if ([dic valueForKey:@"page"] <= [dic valueForKey:@"total_pages"]) {
-                
-                NSNumber *page = [dic valueForKey:@"page"];
-                
-                int pageint = [page intValue];
-                
-                [self JsonRequestandResponce:[NSURL URLWithString:[NSString stringWithFormat:@"https://reqres.in/api/users?page=%d",pageint + 1]]];
-            }
-            
         }
     }];
     
     [DataTask resume];
-    
-}
-
--(void)loadbyPaging:(NSDictionary *)responceData{
-    
-    NSIndexPath *path;
-    
-    int i;
-    
-    for (i = 0; i<1; i++) {
-        
-        [self savemethod:responceData];
-        
-        path = [NSIndexPath indexPathForRow:dataArr.count - 1 inSection:0];
-    }
     
 }
 
