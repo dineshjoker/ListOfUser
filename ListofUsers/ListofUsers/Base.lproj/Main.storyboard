@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="i68-0J-aHn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="i68-0J-aHn">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i68-0J-aHn" id="bDj-Wg-Xap">
@@ -82,18 +81,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-jp-uol">
-                                <rect key="frame" x="93" y="96" width="188" height="191"/>
+                                <rect key="frame" x="112" y="102" width="151" height="156"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="188" id="Ei5-ug-akr"/>
-                                    <constraint firstAttribute="width" secondItem="rbs-jp-uol" secondAttribute="height" multiplier="188:191" id="Ob9-Ta-9je"/>
-                                    <constraint firstAttribute="height" constant="191" id="cLl-ZV-Nuv"/>
+                                    <constraint firstAttribute="width" constant="151" id="MCT-Pa-UKr"/>
+                                    <constraint firstAttribute="height" constant="156" id="yAg-U6-JHC"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-up-ctn">
-                                <rect key="frame" x="0.0" y="334" width="375" height="178"/>
+                                <rect key="frame" x="0.0" y="266" width="375" height="219"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="178" id="NqU-gf-zTc"/>
+                                    <constraint firstAttribute="height" constant="219" id="6Oj-yS-8Pd"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="y3S-CZ-GTN">
@@ -113,13 +111,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2kh-HO-mDK" firstAttribute="bottom" secondItem="IJ8-up-ctn" secondAttribute="bottom" constant="155" id="9Ht-I7-W5g"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="top" secondItem="rbs-jp-uol" secondAttribute="bottom" constant="47" id="Iq2-GB-0f0"/>
-                            <constraint firstItem="2kh-HO-mDK" firstAttribute="trailing" secondItem="rbs-jp-uol" secondAttribute="trailing" constant="94" id="R8i-I9-EZc"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="trailing" secondItem="2kh-HO-mDK" secondAttribute="trailing" id="YdZ-9B-LXX"/>
-                            <constraint firstItem="IJ8-up-ctn" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" id="cyJ-ZF-Lho"/>
-                            <constraint firstItem="rbs-jp-uol" firstAttribute="top" secondItem="2kh-HO-mDK" secondAttribute="top" constant="32" id="uBN-Bb-UIt"/>
-                            <constraint firstItem="rbs-jp-uol" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" constant="93" id="vy3-6y-cNO"/>
+                            <constraint firstItem="rbs-jp-uol" firstAttribute="centerX" secondItem="IJ8-up-ctn" secondAttribute="centerX" id="0jO-kv-9nJ"/>
+                            <constraint firstItem="rbs-jp-uol" firstAttribute="top" secondItem="2kh-HO-mDK" secondAttribute="top" constant="38" id="GFy-qb-1HR"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" id="JZW-hn-aaZ"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="top" secondItem="rbs-jp-uol" secondAttribute="bottom" constant="8" id="Oof-oD-1DO"/>
+                            <constraint firstItem="rbs-jp-uol" firstAttribute="leading" secondItem="2kh-HO-mDK" secondAttribute="leading" constant="112" id="eur-5A-a6L"/>
+                            <constraint firstItem="IJ8-up-ctn" firstAttribute="trailing" secondItem="2kh-HO-mDK" secondAttribute="trailing" id="fiV-Cg-eaR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2kh-HO-mDK"/>
                     </view>
@@ -130,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEl-FS-6yL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="133.5832083958021"/>
+            <point key="canvasLocation" x="922.39999999999998" y="131.78410794602701"/>
         </scene>
     </scenes>
 </document>

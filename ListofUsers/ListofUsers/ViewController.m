@@ -38,17 +38,8 @@
 
      [self gettingSavedValues];
     
-    if (dataArr.count <= 0) {
+    [self JsonRequestandResponce:[NSURL URLWithString:@"https://reqres.in/api/users"]];
         
-        [self JsonRequestandResponce:[NSURL URLWithString:@"https://reqres.in/api/users?page=1"]];
-        
-        [self JsonRequestandResponce:[NSURL URLWithString:@"https://reqres.in/api/users?page=2"]];
-        
-        [self JsonRequestandResponce:[NSURL URLWithString:@"https://reqres.in/api/users?page=3"]];
-        
-        [self JsonRequestandResponce:[NSURL URLWithString:@"https://reqres.in/api/users?page=4"]];
-    }
-   
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -124,6 +115,16 @@
             }
             
             [self gettingSavedValues];
+            
+            if ([dic valueForKey:@"page"] <= [dic valueForKey:@"total_pages"]) {
+                
+                NSNumber *page = [dic valueForKey:@"page"];
+                
+                int pageint = [page intValue];
+                
+                [self JsonRequestandResponce:[NSURL URLWithString:[NSString stringWithFormat:@"https://reqres.in/api/users?page=%d",pageint + 1]]];
+            }
+            
         }
     }];
     
